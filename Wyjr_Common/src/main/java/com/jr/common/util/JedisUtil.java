@@ -1,6 +1,6 @@
 package com.jr.common.util;
 
-import com.qfedu.common.config.ProjectConfig;
+import com.jr.common.config.ProjectConfig;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;

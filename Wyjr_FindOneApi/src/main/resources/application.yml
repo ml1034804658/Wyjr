@@ -5,6 +5,8 @@ eureka:
 spring:
   application:
     name: ApiFindOne
+  main:
+    allow-bean-definition-overriding: true
 server:
   port: 9805
 feign:

@@ -45,6 +45,10 @@
             <groupId>com.jr</groupId>
             <artifactId>Wyjr_Common</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.jr</groupId>
+            <artifactId>Wyjr_Entity</artifactId>
+        </dependency>
     </dependencies>
 
 
