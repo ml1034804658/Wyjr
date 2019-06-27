@@ -11,6 +11,7 @@
         <module>Wyjr_Api</module>
         <module>Wyjr_ServerLogin</module>
         <module>Wyjr_LoginApi</module>
+        <module>Wyjr_ServerQuestion</module>
         <module>Wyjr_ServerFindOne</module>
         <module>Wyjr_FindOneApi</module>
     </modules>

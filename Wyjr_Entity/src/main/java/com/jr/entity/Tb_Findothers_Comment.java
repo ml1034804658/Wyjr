@@ -7,17 +7,17 @@ import java.util.Date;
 public class Tb_Findothers_Comment {
     private Long id;
 
-    private Long jid;
+    private Long jid;       //捡人信id
 
-    private Long uid;
+    private Long uid;        //用户id
 
-    private Long parentid;
+    private Long parentid;    //一级id
 
-    private Long rid;
+    private Long rid;         //回复的id
 
-    private String rContent;
+    private String rContent;   //回复内容
 
-    private Date rTime;
+    private Date rTime;       //回复时间
 
 
 }

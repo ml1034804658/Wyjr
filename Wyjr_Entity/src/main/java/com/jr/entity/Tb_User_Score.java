@@ -1,4 +1,4 @@
-package com.jr.entity;
+    package com.jr.entity;
 
 import lombok.Data;
 
