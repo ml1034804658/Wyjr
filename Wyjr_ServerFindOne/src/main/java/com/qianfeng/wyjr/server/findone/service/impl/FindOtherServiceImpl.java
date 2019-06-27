@@ -1,5 +1,6 @@
 package com.qianfeng.wyjr.server.findone.service.impl;
 
+import com.jr.common.exception.FindOneException;
 import com.jr.common.vo.R;
 import com.jr.entity.Tb_Findothers;
 import com.qianfeng.wyjr.server.findone.dao.Tb_FindothersMapper;
@@ -19,6 +20,15 @@ public class FindOtherServiceImpl implements FindOtherService {
         return R.setOK("OK",tb_findothers);
     }
 
+    @Override
+    public R savemsg(Tb_Findothers findothers) throws FindOneException{
+        try {
+            tb_findothersMapper.insert(findothers);
+            return R.setOK();
+        } catch (Exception e) {
+            throw  new FindOneException("插入失败");
+        }
+    }
 
 
 }
