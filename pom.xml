@@ -11,6 +11,7 @@
         <module>Wyjr_Api</module>
         <module>Wyjr_ServerLogin</module>
         <module>Wyjr_LoginApi</module>
+        <module>Wyjr_ServerQuestion</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -191,9 +192,6 @@
                 <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
                 <version>${dataes.version}</version>
             </dependency>
-
-
-
 
         </dependencies>
     </dependencyManagement>
