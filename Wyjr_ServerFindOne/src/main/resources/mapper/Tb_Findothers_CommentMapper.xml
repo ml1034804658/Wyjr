@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jr.dao.Tb_Findothers_CommentMapper">
+  <resultMap id="BaseResultMap" type="com.jr.entity.Tb_Findothers_Comment">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="jid" jdbcType="BIGINT" property="jid" />
+    <result column="uid" jdbcType="BIGINT" property="uid" />
+    <result column="parentid" jdbcType="BIGINT" property="parentid" />
+    <result column="rid" jdbcType="BIGINT" property="rid" />
+    <result column="r_content" jdbcType="VARCHAR" property="rContent" />
+    <result column="r_time" jdbcType="TIMESTAMP" property="rTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, jid, uid, parentid, rid, r_content, r_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_findothers_comment
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from tb_findothers_comment
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.jr.entity.Tb_Findothers_Comment">
+    insert into tb_findothers_comment (id, jid, uid, parentid, 
+      rid, r_content, r_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{jid,jdbcType=BIGINT}, #{uid,jdbcType=BIGINT}, #{parentid,jdbcType=BIGINT}, 
+      #{rid,jdbcType=BIGINT}, #{rContent,jdbcType=VARCHAR}, #{rTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jr.entity.Tb_Findothers_Comment">
+    insert into tb_findothers_comment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="jid != null">
+        jid,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="parentid != null">
+        parentid,
+      </if>
+      <if test="rid != null">
+        rid,
+      </if>
+      <if test="rContent != null">
+        r_content,
+      </if>
+      <if test="rTime != null">
+        r_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="jid != null">
+        #{jid,jdbcType=BIGINT},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=BIGINT},
+      </if>
+      <if test="parentid != null">
+        #{parentid,jdbcType=BIGINT},
+      </if>
+      <if test="rid != null">
+        #{rid,jdbcType=BIGINT},
+      </if>
+      <if test="rContent != null">
+        #{rContent,jdbcType=VARCHAR},
+      </if>
+      <if test="rTime != null">
+        #{rTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jr.entity.Tb_Findothers_Comment">
+    update tb_findothers_comment
+    <set>
+      <if test="jid != null">
+        jid = #{jid,jdbcType=BIGINT},
+      </if>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=BIGINT},
+      </if>
+      <if test="parentid != null">
+        parentid = #{parentid,jdbcType=BIGINT},
+      </if>
+      <if test="rid != null">
+        rid = #{rid,jdbcType=BIGINT},
+      </if>
+      <if test="rContent != null">
+        r_content = #{rContent,jdbcType=VARCHAR},
+      </if>
+      <if test="rTime != null">
+        r_time = #{rTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jr.entity.Tb_Findothers_Comment">
+    update tb_findothers_comment
+    set jid = #{jid,jdbcType=BIGINT},
+      uid = #{uid,jdbcType=BIGINT},
+      parentid = #{parentid,jdbcType=BIGINT},
+      rid = #{rid,jdbcType=BIGINT},
+      r_content = #{rContent,jdbcType=VARCHAR},
+      r_time = #{rTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
