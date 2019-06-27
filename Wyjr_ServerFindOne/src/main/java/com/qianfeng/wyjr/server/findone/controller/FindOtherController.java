@@ -1,12 +1,11 @@
 package com.qianfeng.wyjr.server.findone.controller;
 
+import com.jr.common.exception.FindOneException;
 import com.jr.common.vo.R;
-import com.qianfeng.wyjr.server.findone.dao.Tb_FindothersMapper;
+import com.jr.entity.Tb_Findothers;
 import com.qianfeng.wyjr.server.findone.service.FindOtherService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class FindOtherController {
@@ -17,5 +16,10 @@ public class FindOtherController {
     @GetMapping("find/ohter/find.do")
     private R find(@RequestParam("jid") Long jid) {
          return findOtherService.selectByPrimaryKey(jid);
+    }
+
+    @PostMapping("find/other/save.do")
+    private R save(@RequestBody Tb_Findothers findothers) throws FindOneException {
+        return findOtherService.savemsg(findothers);
     }
 }
