@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jr.dao.Tb_FindothersMapper">
+  <resultMap id="BaseResultMap" type="com.jr.entity.Tb_Findothers">
+    <id column="jid" jdbcType="BIGINT" property="jid" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="route" jdbcType="VARCHAR" property="route" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="pageview" jdbcType="INTEGER" property="pageview" />
+    <result column="imageurl" jdbcType="VARCHAR" property="imageurl" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    jid, uid, route, content, createtime, pageview, imageurl
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_findothers
+    where jid = #{jid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from tb_findothers
+    where jid = #{jid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.jr.entity.Tb_Findothers">
+    insert into tb_findothers (jid, uid, route, 
+      content, createtime, pageview, 
+      imageurl)
+    values (#{jid,jdbcType=BIGINT}, #{uid,jdbcType=INTEGER}, #{route,jdbcType=VARCHAR}, 
+      #{content,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{pageview,jdbcType=INTEGER}, 
+      #{imageurl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jr.entity.Tb_Findothers">
+    insert into tb_findothers
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="jid != null">
+        jid,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="route != null">
+        route,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="pageview != null">
+        pageview,
+      </if>
+      <if test="imageurl != null">
+        imageurl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="jid != null">
+        #{jid,jdbcType=BIGINT},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="route != null">
+        #{route,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pageview != null">
+        #{pageview,jdbcType=INTEGER},
+      </if>
+      <if test="imageurl != null">
+        #{imageurl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jr.entity.Tb_Findothers">
+    update tb_findothers
+    <set>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="route != null">
+        route = #{route,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pageview != null">
+        pageview = #{pageview,jdbcType=INTEGER},
+      </if>
+      <if test="imageurl != null">
+        imageurl = #{imageurl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where jid = #{jid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jr.entity.Tb_Findothers">
+    update tb_findothers
+    set uid = #{uid,jdbcType=INTEGER},
+      route = #{route,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      pageview = #{pageview,jdbcType=INTEGER},
+      imageurl = #{imageurl,jdbcType=VARCHAR}
+    where jid = #{jid,jdbcType=BIGINT}
+  </update>
+</mapper>
