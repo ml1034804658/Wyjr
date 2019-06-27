@@ -14,6 +14,7 @@
         <module>Wyjr_ServerQuestion</module>
         <module>Wyjr_ServerFindOne</module>
         <module>Wyjr_FindOneApi</module>
+        <module>Wyjr_QuestionApi</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

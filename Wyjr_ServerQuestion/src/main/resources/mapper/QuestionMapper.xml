@@ -2,11 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jr.question.dao.QuestionDao">
 
-
-
-
-
-
     <select id="findAll" resultType="com.jr.entity.Tb_Question">
         select q.*, u.nickname,qa.parent_id   from tb_question q
         inner JOIN tb_user_info u
