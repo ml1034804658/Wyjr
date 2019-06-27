@@ -8,10 +8,9 @@
         <version>0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
-    <artifactId>Wyjr_FindOneApi</artifactId>
-
     <packaging>war</packaging>
+
+    <artifactId>Wyjr_QuestionApi</artifactId>
 
     <dependencies>
         <dependency>
@@ -41,15 +40,28 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.jr</groupId>
-            <artifactId>Wyjr_Common</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>com.jr</groupId>
             <artifactId>Wyjr_Entity</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.jr</groupId>
+            <artifactId>Wyjr_Common</artifactId>
+        </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+
+
 
 
 </project>
