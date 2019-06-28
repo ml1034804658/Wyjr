@@ -1,8 +1,5 @@
 package com.jr.common.config;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class ProjectConfig {
 
 
@@ -34,4 +31,7 @@ public class ProjectConfig {
     public static final String accessKeyId = "LTAI7q8oJCFvfIHU";
     public static final String accessKeySecret = "3bbb4dXVmfpNdBavpzjX2XVwGe8dT3";
     public static final String bucketName = "zhangyi01";
+
+    // 检人信息的浏览量
+    public static final  String  PAGEVIEW = "pageview:";
 }

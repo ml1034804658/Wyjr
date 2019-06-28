@@ -114,4 +114,8 @@
       r_time = #{rTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="selectByJid" parameterType="int" resultType="BaseResultMap">
+     select * from tb_findothers_comment where jid = #{jid};
+  </select>
 </mapper>
