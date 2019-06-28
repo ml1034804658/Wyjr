@@ -7,13 +7,17 @@
         <module>Wyjr_Common</module>
         <module>Wyjr_Entity</module>
         <module>Wyjr_Eureka</module>
-        <module>Wyjr_ServerUser</module>
         <module>Wyjr_Api</module>
         <module>Wyjr_ServerLogin</module>
         <module>Wyjr_LoginApi</module>
         <module>Wyjr_ServerQuestion</module>
         <module>Wyjr_ServerFindOne</module>
         <module>Wyjr_FindOneApi</module>
+        <module>Wyjr_QuestionApi</module>
+        <module>Wyjr_Message</module>
+        <module>Wyjr_ServerUser</module>
+
+
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -194,10 +198,6 @@
                 <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
                 <version>${dataes.version}</version>
             </dependency>
-
-
-
-
         </dependencies>
     </dependencyManagement>
 

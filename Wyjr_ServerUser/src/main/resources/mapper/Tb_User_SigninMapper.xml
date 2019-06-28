@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jr.server.user.dao.Tb_User_SigninMapper">
+  <resultMap id="BaseResultMap" type="com.jr.entity.Tb_User_Signin">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="extrascore" jdbcType="INTEGER" property="extrascore" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, uid, score, extrascore, createtime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_user_signin
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+
+  <insert id="insert" parameterType="com.jr.entity.Tb_User_Signin">
+    insert into tb_user_signin (id, uid, score, 
+      extrascore, createtime)
+    values (#{id,jdbcType=BIGINT}, #{uid,jdbcType=INTEGER}, #{score,jdbcType=INTEGER}, 
+      #{extrascore,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP})
+  </insert>
+
+</mapper>

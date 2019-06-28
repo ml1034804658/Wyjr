@@ -12,12 +12,32 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class FindOtherServiceImpl implements FindOtherService {
 
     @Autowired private Tb_FindothersMapper tb_findothersMapper;
 
+
     @Autowired private Tb_Findothers_CommentMapper tb_findothers_commentMapper;
+
+    //最新捡人
+    @Override
+    public R selectAll() {
+        List<Tb_Findothers> list_tb_findothers = tb_findothersMapper.selectAll();
+
+        return R.setOK("OK", list_tb_findothers);
+    }
+
+    //最热捡人
+    public R selectAllByHot() {
+        List<Tb_Findothers> list_tb_findothers = tb_findothersMapper.selectAllByHot();
+        return R.setOK("OK", list_tb_findothers);
+    }
+
+
+
     @Override
     public R selectByPrimaryKey(Long jid) {
         Tb_Findothers tb_findothers = tb_findothersMapper.selectByPrimaryKey(jid);

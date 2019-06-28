@@ -10,6 +10,8 @@ import java.util.Map;
 import java.util.Set;
 
 /**
+ *@Author feri
+ *@Date Created in 2019/6/12 23:26
  * 基于单例模式的饿汉式  线程安全的 保证实例唯一性
  */
 public class JedisUtil {
@@ -65,9 +67,7 @@ public class JedisUtil {
             return jedis.set(key, value);
         }
 
-        public long ttl(String key){
-            return getJedis().ttl(key);
-        }
+
 
         public String setExpire(String key,String value,int sceonds){
            return getJedis().setex(key,sceonds,value);
@@ -116,6 +116,10 @@ public class JedisUtil {
         public Long setnx(String key, String value) {
             Jedis jedis = getJedis();
             return jedis.setnx(key, value);
+        }
+
+        public long ttl(String key){
+            return getJedis().ttl(key);
         }
 
         /**

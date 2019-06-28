@@ -1,12 +1,20 @@
 package com.jr.common.config;
 
 public class ProjectConfig {
+    //初识积分-新用户
+    public static final int INITNEWSCORE=50;
+    public static final int INITNEWSEXPIRE=30;
 
 
     //Redis信息
-    public static final String REDISHOST="10.8.161.43";
+/*    public static final String REDISHOST="10.8.161.43";
     public static final int REDISPORT=6379;
-    public static final String REDISPASS="";
+    public static final String REDISPASS="";*/
+
+    //Redis信息
+    public static final String REDISHOST="39.105.189.141";
+    public static final int REDISPORT=6380;
+    public static final String REDISPASS="qfjava";
 
     //Redis常用的key的设置
     public static final String SMSPRELIMIT="smspre:";//记录手机号一分钟只能发一次 smspre:180515990152 key
@@ -17,6 +25,22 @@ public class ProjectConfig {
     public static final String USERLOGINCOUNT="uc:";// uc:手机号  次数  10分钟
     public static final String USERSD="userfreeze:";//手机号 所有冻结的手机号
     public static final String SIGNKEY="usign:ljb";//记录每天签到  Set集合 内容 手机号
+    public static final String TOKENHEAD="usertoken";//请求消息头的名称，记录令牌 前端
+
+    //短信配置
+    public static final String SMSKEY="c3ce2a94f03df2477f160c2e591c97ac";
+    public static final String SMSTEMPID="165171";
+
+    public static Map<Integer,String> projects;
+    static {
+        projects=new HashMap<>();
+        projects.put(10001,"我的检人");
+
+    }
+
+    //激活地址
+    public static final String ACTIVEURL="";
+    public static final String AESKEYACTIVECODE="Sr766D1d0ir+q61J2ho7rQ==";
 
 
     //资源文件的前缀
