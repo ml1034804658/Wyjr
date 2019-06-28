@@ -20,6 +20,4 @@ public class Tb_Question_Answer {
     private Date rTime;          //回复时间
 
 
-
-
 }
