@@ -13,6 +13,15 @@
   <sql id="Base_Column_List">
     jid, uid, route, content, createtime, pageview, imageurl
   </sql>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from tb_findothers order by createtime desc
+  </select>
+  <select id="selectAllByHot" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from tb_findothers order by pageview desc
+  </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
