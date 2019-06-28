@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jr.server.user.dao.Tb_UserMapper">
+  <resultMap id="BaseResultMap" type="com.jr.entity.Tb_User">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.jr.entity.Tb_User" useGeneratedKeys="true" keyProperty="id">
+    insert into tb_user (phone,password,flag)
+    values ( #{phone,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 1)
+  </insert>
+
+  <select id="all" resultType="com.jr.entity.Tb_User">
+    select * from tb_user;
+  </select>
+
+</mapper>

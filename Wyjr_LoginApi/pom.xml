@@ -44,10 +44,7 @@
             <artifactId>Wyjr_Common</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.</groupId>
-            <artifactId></artifactId>
-        </dependency>
+
     </dependencies>
 
 
