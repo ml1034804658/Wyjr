@@ -19,5 +19,7 @@ public class Tb_Question {
 
     private Integer reward;     //赏金
 
+    private int browseNum;      //浏览量
+
 
 }

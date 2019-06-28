@@ -4,8 +4,8 @@ import com.jr.entity.Tb_Question;
 
 import java.util.List;
 
-public interface QuestionDao {
+public interface QuestionWithNewDao {
 
-   public List<Tb_Question> findAll();
+    public List<Tb_Question> findAllWithNew();
 
 }
