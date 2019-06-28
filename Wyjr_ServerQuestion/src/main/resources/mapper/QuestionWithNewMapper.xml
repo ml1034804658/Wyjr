@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jr.question.dao.QuestionWithNewDao">
+
+    <select id="findAllWithNew" resultType="com.jr.entity.Tb_Question">
+
+        <if test="reward !=0">
+            select q.*, u.nickname,qa.parent_id from tb_question q
+            inner JOIN tb_user_info u
+            on q.uid=u.uid
+            INNER JOIN tb_question_answer qa
+            on u.uid=qa.uid
+            order by cretetime desc;
+        </if>
+        <if test="reward=0">
+            select q.*, u.nickname,qa.parent_id from tb_question q
+            inner JOIN tb_user_info u
+            on q.uid=u.uid
+            INNER JOIN tb_question_answer qa
+            on u.uid=qa.uid
+            order by cretetime desc;
+        </if>
+
+    </select>
+
+
+</mapper>
