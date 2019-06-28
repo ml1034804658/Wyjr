@@ -3,12 +3,35 @@
 <mapper namespace="com.jr.question.dao.QuestionDao">
 
     <select id="findAll" resultType="com.jr.entity.Tb_Question">
-        select q.*, u.nickname,qa.parent_id   from tb_question q
+        select q.*, u.nickname,qa.parent_id from tb_question q
         inner JOIN tb_user_info u
         on q.uid=u.uid
         INNER JOIN tb_question_answer qa
         on u.uid=qa.uid
-        order by cretetime asc;
+        order by cretetime desc;
     </select>
+
+    <select id="findAllTwo" resultType="com.jr.entity.Tb_Question">
+
+        <if test="reward !=0">
+            select q.*, u.nickname,qa.parent_id from tb_question q
+            inner JOIN tb_user_info u
+            on q.uid=u.uid
+            INNER JOIN tb_question_answer qa
+            on u.uid=qa.uid
+            order by cretetime desc;
+        </if>
+        <if test="reward=0">
+            select q.*, u.nickname,qa.parent_id from tb_question q
+            inner JOIN tb_user_info u
+            on q.uid=u.uid
+            INNER JOIN tb_question_answer qa
+            on u.uid=qa.uid
+            order by ;
+        </if>
+
+
+    </select>
+
 
 </mapper>

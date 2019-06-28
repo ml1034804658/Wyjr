@@ -19,7 +19,7 @@ public class Tb_Question_Answer {
 
     private Date rTime;          //回复时间
 
-    private int browseNum;      //浏览量
+
 
 
 }

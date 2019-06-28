@@ -6,6 +6,9 @@ import java.util.List;
 
 public interface QuestionDao {
 
-   public  List<Tb_Question> findAll();
+   public List<Tb_Question> findAll();
+
+   public List<Tb_Question> findAllTwo();
+
 
 }

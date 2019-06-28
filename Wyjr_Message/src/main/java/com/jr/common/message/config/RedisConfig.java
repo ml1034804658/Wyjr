@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class RedisConfig {
     @Bean
     public JedisUtil createJU(){
+
         return JedisUtil.getInstance();
     }
 }

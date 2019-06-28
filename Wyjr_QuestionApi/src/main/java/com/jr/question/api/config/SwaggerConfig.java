@@ -23,7 +23,7 @@ public class SwaggerConfig {
     public ApiInfo createA(){
         ApiInfo info=new ApiInfoBuilder().title("我要捡人-数据接口平台").
                 contact( new Contact("第五组","http://www.mobiletrain.org","xingfei_work@163.com")).
-                description("实现一个邻家邦项目的数据接口").build();
+                description("实现一个我要捡人的数据接口").build();
         return info;
     }
     /**
@@ -36,7 +36,7 @@ public class SwaggerConfig {
     @Bean//创建对象  修饰方法 方法的返回值必须是引用类型  对象存储在IOC容器
     public Docket createDocket(){
        Docket docket=new Docket(DocumentationType.SWAGGER_2).apiInfo(createA()).select().
-               apis(RequestHandlerSelectors.basePackage("com.qfedu.ljb.api.controller")).
+               apis(RequestHandlerSelectors.basePackage("com.jr.question.api.controller")).
                build();
        return docket;
     }
