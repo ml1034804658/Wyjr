@@ -1,13 +1,10 @@
 package com.jr.api.controller;
 
+import com.jr.api.service.Tb_UserService;
 import com.jr.common.vo.R;
 import com.jr.entity.Tb_User;
-import com.jr.api.service.Tb_UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class Tb_UserController {
@@ -23,6 +20,10 @@ public class Tb_UserController {
     @PostMapping("/api/user/save.do")
     public R save(@RequestBody Tb_User user)  {
         return userService.save(user);
+    }
+    @GetMapping("api/user/checkphone.do")
+    public R check(@RequestParam("phone") String phone){
+        return userService.check(phone);
     }
 
 

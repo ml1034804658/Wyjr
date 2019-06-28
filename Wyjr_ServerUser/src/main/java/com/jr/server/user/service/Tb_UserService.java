@@ -9,4 +9,6 @@ public interface Tb_UserService {
     R save(Tb_User user) throws UserException;
 
     R all();
+
+    R checkPhone(String phone);
 }
