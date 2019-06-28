@@ -22,4 +22,9 @@ public class Tb_UserController {
     public R save(@RequestBody Tb_User user) throws UserException {
         return userService.save(user);
     }
+    //检验手机号是否存在
+    @GetMapping("user/checkphone.do")
+    public R check(@RequestParam("phone") String phone){
+        return userService.checkPhone(phone);
+    }
 }

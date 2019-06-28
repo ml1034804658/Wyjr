@@ -16,4 +16,8 @@
     select * from tb_user;
   </select>
 
+  <select id="selectByPhone" resultType="com.jr.entity.Tb_User">
+     select * from tb_user where phone=#{phone}
+  </select>
+
 </mapper>

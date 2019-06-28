@@ -63,4 +63,15 @@ public class Tb_UserServiceImpl implements Tb_UserService {
     public R all() {
         return R.setOK("OK",userMapper.all());
     }
+
+    @Override
+    public R checkPhone(String phone) {
+        Tb_User user =userMapper.selectByPhone(phone);
+        if (user!=null){
+            return R.setERROR("手机号已经注册过，请找回密码");
+        }else {
+            return R.setOK();
+        }
+
+    }
 }
