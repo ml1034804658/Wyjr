@@ -72,8 +72,13 @@ public class ProjectConfig {
     public static final  String  PAGEVIEW = "pageview:";
 
     //问答状态相关常量
-    //未采纳状态
-    public static final Integer AdoptState = 1;
     //采纳状态
-    public static final Integer NoAdoptState = 0;
+    public static final Integer AdoptState = 0;
+    //未采纳状态
+    public static final Integer NoAdoptState = 1;
+    //过期
+    public static final Integer Expire = 0;
+    //未过期
+    public static final Integer NoExpire = 1;
+
 }

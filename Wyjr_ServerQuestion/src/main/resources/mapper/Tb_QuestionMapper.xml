@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jr.question.dao.QuestionDao1">
+  <resultMap id="BaseResultMap" type="com.jr.entity.Tb_Question">
+    <id column="qid" jdbcType="BIGINT" property="qid" />
+    <result column="uid" jdbcType="BIGINT" property="uid" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="cretetime" jdbcType="TIMESTAMP" property="cretetime" />
+    <result column="imageurl" jdbcType="VARCHAR" property="imageurl" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="reward" jdbcType="INTEGER" property="reward" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    qid, uid, content, cretetime, imageurl, state, reward
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_question
+    where qid = #{qid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from tb_question
+    where qid = #{qid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.jr.entity.Tb_Question">
+    insert into tb_question (qid, uid, content, 
+      cretetime, imageurl, state, 
+      reward)
+    values (#{qid,jdbcType=BIGINT}, #{uid,jdbcType=BIGINT}, #{content,jdbcType=VARCHAR}, 
+      #{cretetime,jdbcType=TIMESTAMP}, #{imageurl,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, 
+      #{reward,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jr.entity.Tb_Question">
+    insert into tb_question
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="qid != null">
+        qid,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="cretetime != null">
+        cretetime,
+      </if>
+      <if test="imageurl != null">
+        imageurl,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="reward != null">
+        reward,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="qid != null">
+        #{qid,jdbcType=BIGINT},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=BIGINT},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="cretetime != null">
+        #{cretetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="imageurl != null">
+        #{imageurl,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="reward != null">
+        #{reward,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jr.entity.Tb_Question">
+    update tb_question
+    <set>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=BIGINT},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="cretetime != null">
+        cretetime = #{cretetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="imageurl != null">
+        imageurl = #{imageurl,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="reward != null">
+        reward = #{reward,jdbcType=INTEGER},
+      </if>
+    </set>
+    where qid = #{qid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jr.entity.Tb_Question">
+    update tb_question
+    set uid = #{uid,jdbcType=BIGINT},
+      content = #{content,jdbcType=VARCHAR},
+      cretetime = #{cretetime,jdbcType=TIMESTAMP},
+      imageurl = #{imageurl,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER},
+      reward = #{reward,jdbcType=INTEGER}
+    where qid = #{qid,jdbcType=BIGINT}
+  </update>
+</mapper>

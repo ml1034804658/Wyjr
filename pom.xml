@@ -18,7 +18,7 @@
         <module>Wyjr_ServerUser</module>
         <module>Wyjr_ServerGoods</module>
         <module>Wyjr_GoodsApi</module>
-
+        <module>Wyjr_ResourceApi</module>
 
     </modules>
     <parent>

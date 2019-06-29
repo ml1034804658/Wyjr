@@ -3,6 +3,7 @@ package com.jr.question.dao;
 import org.apache.ibatis.annotations.Param;
 
 public interface UserScoreDao {
+    public Integer selectTotalscore(Long uid);
 
-    public Integer updata(@Param("uid") Long uid,@Param("score") Integer score);
+    public Integer update(@Param("uid") Long uid,@Param("score") Integer score);
 }

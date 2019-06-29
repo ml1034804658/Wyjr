@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.jr.dao.UserScore">
+<mapper namespace="com.jr.question.dao.UserScoreDao">
+
+    <select id="selectTotalscore" parameterType="long" resultType="int">
+        select  totalscore FROM wyjr.tb_user_score where uid = #{uid}
+    </select>
+
     <update id="update" parameterType="map" >
-        update tb_user_score set totalscore =  (select  totalscore FROM wyjr.tb_user_score where uid = #{uid}) - #{score}
-        where uid = #{uid}
+        update tb_user_score set totalscore = #{score} where uid = #{uid}
     </update>
 </mapper>
