@@ -13,6 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -20,23 +23,42 @@ public class FindOtherServiceImpl implements FindOtherService {
 
     @Autowired private Tb_FindothersMapper tb_findothersMapper;
 
-
-    @Autowired private Tb_Findothers_CommentMapper tb_findothers_commentMapper;
+    @Autowired
+    private Tb_Findothers_CommentMapper tb_findothers_commentMapper;
 
     //最新捡人
     @Override
     public R selectAll() {
         List<Tb_Findothers> list_tb_findothers = tb_findothersMapper.selectAll();
-
         return R.setOK("OK", list_tb_findothers);
     }
 
     //最热捡人
     public R selectAllByHot() {
-        List<Tb_Findothers> list_tb_findothers = tb_findothersMapper.selectAllByHot();
-        return R.setOK("OK", list_tb_findothers);
-    }
+        JedisUtil instance = JedisUtil.getInstance();
 
+        Tb_Findothers tb_findothers = new Tb_Findothers();
+
+        List<Tb_Findothers> list = new ArrayList<>();
+
+        for (int i=0; i<Integer.parseInt(instance.get("list_count")); i++) {
+            tb_findothers.setJid(Long.getLong(instance.get("jid"+i)));
+            System.out.println(Long.getLong(instance.get("jid"+i)));
+            tb_findothers.setUid(Integer.parseInt(instance.get("uid"+ i)));
+            tb_findothers.setRoute(instance.get("route"+ i));
+            tb_findothers.setContent(instance.get("content"+ i));
+            try {
+                tb_findothers.setCreatetime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(instance.get("createtime"+ i)));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            tb_findothers.setPageview(Integer.parseInt(instance.get("pageview"+ i)));
+            tb_findothers.setImageurl(instance.get("imageurl"+ i));
+
+            list.add(tb_findothers);
+        }
+        return R.setOK("OK", list) ;
+    }
 
 
     @Override

@@ -12,6 +12,7 @@ public interface Tb_FindothersMapper {
     int insertSelective(Tb_Findothers record);
 
     List<Tb_Findothers> selectAll();
+
     List<Tb_Findothers> selectAllByHot();
 
     Tb_Findothers selectByPrimaryKey(Long jid);
