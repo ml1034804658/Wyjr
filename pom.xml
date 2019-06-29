@@ -16,6 +16,8 @@
         <module>Wyjr_QuestionApi</module>
         <module>Wyjr_Message</module>
         <module>Wyjr_ServerUser</module>
+        <module>Wyjr_ServerGoods</module>
+        <module>Wyjr_GoodsApi</module>
 
 
     </modules>
