@@ -1,8 +1,5 @@
 package com.jr.common.config;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class ProjectConfig {
     //初识积分-新用户
     public static final int INITNEWSCORE=50;
@@ -58,4 +55,7 @@ public class ProjectConfig {
     public static final String accessKeyId = "LTAI7q8oJCFvfIHU";
     public static final String accessKeySecret = "3bbb4dXVmfpNdBavpzjX2XVwGe8dT3";
     public static final String bucketName = "zhangyi01";
+
+    // 检人信息的浏览量
+    public static final  String  PAGEVIEW = "pageview:";
 }
