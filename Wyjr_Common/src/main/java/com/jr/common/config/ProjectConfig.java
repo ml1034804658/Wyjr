@@ -47,7 +47,7 @@ public class ProjectConfig {
 
 
     //资源文件的前缀
-    public static final String RESOURCEURL="http://localhost:9804/ljbresource/";
+    public static final String RESOURCEURL="http://localhost:9906/wyjrresource/";
 
 
     //OSS配置
@@ -61,4 +61,10 @@ public class ProjectConfig {
 
     // 检人信息的浏览量
     public static final  String  PAGEVIEW = "pageview:";
+
+    //问答状态相关常量
+    //未采纳状态
+    public static final Integer AdoptState = 1;
+    //采纳状态
+    public static final Integer NoAdoptState = 0;
 }
