@@ -6,7 +6,7 @@ import lombok.Data;
 public class Tb_User_Score {
     private Integer id;
 
-    private Integer uid;
+    private Long uid;
 
     private Integer totalscore;
 

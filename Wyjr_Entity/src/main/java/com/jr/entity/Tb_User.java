@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class Tb_User {
-    private Integer id;
+    private Long id;
 
     private String phone;
 

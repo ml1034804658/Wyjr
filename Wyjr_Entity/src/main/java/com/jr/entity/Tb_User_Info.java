@@ -7,7 +7,7 @@ import java.util.Date;
 public class Tb_User_Info {
     private Integer id;
 
-    private Integer uid;
+    private Long uid;
 
     private String nickname;
 
