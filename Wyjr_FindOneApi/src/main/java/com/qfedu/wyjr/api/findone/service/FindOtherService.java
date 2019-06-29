@@ -18,8 +18,6 @@ public interface FindOtherService {
     @GetMapping("find/ohter/findAllHot.do")
     R selectAllByHot();
 
-
-
     @GetMapping("find/ohter/find.do")
     R selectByPrimaryKey(@RequestParam("jid") Long jid);
 

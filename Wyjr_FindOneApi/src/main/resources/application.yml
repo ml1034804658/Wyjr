@@ -7,6 +7,9 @@ spring:
     name: ApiFindOne
   main:
     allow-bean-definition-overriding: true
+  mvc:
+    async:
+      request-timeout: 90000000
 server:
   port: 9805
 feign:

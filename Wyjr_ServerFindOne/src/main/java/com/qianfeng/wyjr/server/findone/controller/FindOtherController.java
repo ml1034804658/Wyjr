@@ -21,6 +21,7 @@ public class FindOtherController {
     //最热捡人
     @GetMapping("find/ohter/findAllHot.do")
     private R findAllByHot() {
+
         return findOtherService.selectAllByHot();
     }
 
