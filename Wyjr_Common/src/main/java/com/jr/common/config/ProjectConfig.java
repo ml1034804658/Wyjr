@@ -1,5 +1,8 @@
 package com.jr.common.config;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ProjectConfig {
     //初识积分-新用户
     public static final int INITNEWSCORE=50;
