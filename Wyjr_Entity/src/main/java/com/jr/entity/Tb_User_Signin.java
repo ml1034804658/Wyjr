@@ -7,7 +7,7 @@ import java.util.Date;
 public class Tb_User_Signin {
     private Long id;
 
-    private Integer uid;
+    private Long uid;
 
     private Integer score;
 

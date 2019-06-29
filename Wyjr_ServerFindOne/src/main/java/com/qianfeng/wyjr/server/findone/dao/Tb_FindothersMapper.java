@@ -12,6 +12,7 @@ public interface Tb_FindothersMapper {
     int insertSelective(Tb_Findothers record);
 
     List<Tb_Findothers> selectAll();
+
     List<Tb_Findothers> selectAllByHot();
 
     Tb_Findothers selectByPrimaryKey(Long jid);
@@ -19,4 +20,6 @@ public interface Tb_FindothersMapper {
     int updateByPrimaryKeySelective(Tb_Findothers record);
 
     int updateByPrimaryKey(Tb_Findothers record);
+    // 跟新检人信息的浏览量
+    int updatePageView(long jid, long pageview);
 }

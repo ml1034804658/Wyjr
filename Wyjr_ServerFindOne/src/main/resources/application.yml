@@ -5,12 +5,18 @@ eureka:
 spring:
   application:
     name: FindOneProvider
+  mvc:
+    async:
+      request-timeout: 2000000
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root
     url: jdbc:mysql://47.101.48.84:3306/wyjr?serverTimezone=UTC&characterEncoding=UTF8
     type: com.alibaba.druid.pool.DruidDataSource
+  mvc:
+    async:
+      request-timeout: 2000000
 server:
   port: 9905
 mybatis:

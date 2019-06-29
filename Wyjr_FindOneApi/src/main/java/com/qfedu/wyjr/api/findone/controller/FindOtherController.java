@@ -1,5 +1,6 @@
 package com.qfedu.wyjr.api.findone.controller;
 
+import com.jr.common.exception.FindOneException;
 import com.jr.common.vo.R;
 import com.jr.entity.Tb_Findothers;
 import com.qfedu.wyjr.api.findone.service.FindOtherService;
@@ -33,4 +34,9 @@ public class FindOtherController {
     private  R save(@RequestBody Tb_Findothers findothers){
         return findOtherService.save(findothers);
     };
+
+    @GetMapping("/api/find/other/finddetil.do")
+    private  R selectDetailByJid(@RequestParam("jid") Long jid) throws FindOneException {
+        return findOtherService.selectDetailByJid(jid);
+    }
 }

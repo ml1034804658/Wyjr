@@ -21,6 +21,7 @@ public class FindOtherController {
     //最热捡人
     @GetMapping("find/ohter/findAllHot.do")
     private R findAllByHot() {
+
         return findOtherService.selectAllByHot();
     }
 
@@ -32,5 +33,10 @@ public class FindOtherController {
     @PostMapping("find/other/save.do")
     private R save(@RequestBody Tb_Findothers findothers) throws FindOneException {
         return findOtherService.savemsg(findothers);
+    }
+
+    @GetMapping("find/other/finddetil.do")
+    private  R selectDetailByJid(@RequestParam("jid") Long jid) throws FindOneException{
+        return findOtherService.selectDetailByJid(jid);
     }
 }
