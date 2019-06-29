@@ -11,4 +11,62 @@
         order by cretetime desc;
     </select>
 
+    <resultMap id="BaseResultMap" type="com.jr.entity.Tb_Question">
+        <id column="qid" jdbcType="BIGINT" property="qid" />
+        <result column="uid" jdbcType="BIGINT" property="uid" />
+        <result column="content" jdbcType="VARCHAR" property="content" />
+        <result column="cretetime" jdbcType="TIMESTAMP" property="cretetime" />
+        <result column="imageurl" jdbcType="VARCHAR" property="imageurl" />
+        <result column="state" jdbcType="INTEGER" property="state" />
+        <result column="reward" jdbcType="INTEGER" property="reward" />
+    </resultMap>
+    <insert id="add" parameterType="com.jr.entity.Tb_Question">
+        insert into tb_question
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="qid != null">
+                qid,
+            </if>
+            <if test="uid != null">
+                uid,
+            </if>
+            <if test="content != null">
+                content,
+            </if>
+            <if test="cretetime != null">
+                cretetime,
+            </if>
+            <if test="imageurl != null">
+                imageurl,
+            </if>
+            <if test="state != null">
+                state,
+            </if>
+            <if test="reward != null">
+                reward,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="qid != null">
+                #{qid,jdbcType=BIGINT},
+            </if>
+            <if test="uid != null">
+                #{uid,jdbcType=BIGINT},
+            </if>
+            <if test="content != null">
+                #{content,jdbcType=VARCHAR},
+            </if>
+            <if test="cretetime != null">
+                #{cretetime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="imageurl != null">
+                #{imageurl,jdbcType=VARCHAR},
+            </if>
+            <if test="state != null">
+                #{state,jdbcType=INTEGER},
+            </if>
+            <if test="reward != null">
+                #{reward,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
 </mapper>

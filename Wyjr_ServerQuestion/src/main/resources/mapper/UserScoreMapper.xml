@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jr.dao.UserScore">
-    <update id="update" parameterType="int" >
+    <update id="update" parameterType="map" >
         update tb_user_score set totalscore =  (select  totalscore FROM wyjr.tb_user_score where uid = #{uid}) - #{score}
         where uid = #{uid}
     </update>
