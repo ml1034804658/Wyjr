@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.Date;
 @Data
 public class Tb_User_Info {
-    private Integer id;
+    private Long id;
 
     private Long uid;
 

@@ -2,6 +2,7 @@ package com.jr.server.user.service.impl;
 
 import com.jr.common.config.ProjectConfig;
 import com.jr.common.exception.UserException;
+import com.jr.common.util.EncryptionUtil;
 import com.jr.common.util.TimeUtil;
 import com.jr.common.vo.R;
 import com.jr.entity.Tb_User;
@@ -34,6 +35,7 @@ public class Tb_UserServiceImpl implements Tb_UserService {
     @Transactional(rollbackFor = {UserException.class})
     public R save(Tb_User user) throws UserException {
         try {
+            user.setPassword(EncryptionUtil.RSAEnc(ProjectConfig.PASSRSAPRI,user.getPassword()));
             //新增用户
             userMapper.insert(user);
             //初始化用户详情

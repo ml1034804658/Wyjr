@@ -7,7 +7,7 @@ public interface Tb_User_InfoMapper {
 
     int insert(Tb_User_Info record);
 
-    int insertInit(int uid);
+    int insertInit(Long uid);
 
 
 }
