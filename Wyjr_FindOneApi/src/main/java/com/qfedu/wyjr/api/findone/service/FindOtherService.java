@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
-
 @FeignClient(name = "FindOneProvider")
 public interface FindOtherService {
     @GetMapping("find/ohter/findAll.do")
@@ -25,4 +23,7 @@ public interface FindOtherService {
 
     @PostMapping("find/other/save.do")
     R save(@RequestBody Tb_Findothers findothers);
+
+    @GetMapping("find/other/finddetil.do")
+    R selectDetailByJid(@RequestParam("jid") Long jid);
 }

@@ -9,7 +9,7 @@ spring:
     allow-bean-definition-overriding: true
   mvc:
     async:
-      request-timeout: 20000
+      request-timeout: 2000000
 server:
   port: 9805
 feign:

@@ -16,4 +16,5 @@ public interface FindOtherService {
     R savemsg(Tb_Findothers findothers) throws FindOneException;
     // 根据检人信息的id查找相关详细的信息和评论
     R selectDetailByJid(Long jid) throws  FindOneException;
+
 }

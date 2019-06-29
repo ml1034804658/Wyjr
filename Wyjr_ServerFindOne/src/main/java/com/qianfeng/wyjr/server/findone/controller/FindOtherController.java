@@ -33,4 +33,9 @@ public class FindOtherController {
     private R save(@RequestBody Tb_Findothers findothers) throws FindOneException {
         return findOtherService.savemsg(findothers);
     }
+
+    @GetMapping("find/other/finddetil.do")
+    private  R selectDetailByJid(@RequestParam("jid") Long jid) throws FindOneException{
+        return findOtherService.selectDetailByJid(jid);
+    }
 }

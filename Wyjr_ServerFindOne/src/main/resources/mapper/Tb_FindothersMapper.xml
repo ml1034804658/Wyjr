@@ -123,4 +123,10 @@
       imageurl = #{imageurl,jdbcType=VARCHAR}
     where jid = #{jid,jdbcType=BIGINT}
   </update>
+
+  <update id="updatePageView" parameterType="map">
+    update tb_findothers
+    set pageview = #{pageview}
+    where jid = #{jid}
+  </update>
 </mapper>
