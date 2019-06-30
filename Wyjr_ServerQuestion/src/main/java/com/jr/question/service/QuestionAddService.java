@@ -1,8 +1,8 @@
 package com.jr.question.service;
 
+import com.jr.common.exception.QuestionException;
 import com.jr.common.vo.R;
 import com.jr.entity.Tb_Question;
-import com.jr.question.exception.QuestionException;
 
 public interface QuestionAddService {
     /**

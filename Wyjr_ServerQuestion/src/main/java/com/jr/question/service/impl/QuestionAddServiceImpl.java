@@ -1,6 +1,7 @@
 package com.jr.question.service.impl;
 
 import com.jr.common.config.ProjectConfig;
+import com.jr.common.exception.QuestionException;
 import com.jr.common.util.TimeUtil;
 import com.jr.common.vo.R;
 import com.jr.entity.Tb_Question;
@@ -8,13 +9,11 @@ import com.jr.entity.Tb_User_Scorechange;
 import com.jr.question.dao.QuestionDao;
 import com.jr.question.dao.ScorechangeDao;
 import com.jr.question.dao.UserScoreDao;
-import com.jr.question.exception.QuestionException;
 import com.jr.question.service.QuestionAddService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Calendar;
 import java.util.Date;
 
 @Service
