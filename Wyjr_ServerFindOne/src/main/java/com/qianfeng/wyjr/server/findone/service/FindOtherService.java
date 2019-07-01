@@ -17,4 +17,5 @@ public interface FindOtherService {
     // 根据检人信息的id查找相关详细的信息和评论
     R selectDetailByJid(Long jid) throws  FindOneException;
 
+    void updatePageView(long jid, int pageview);
 }

@@ -23,5 +23,5 @@ public interface FindOtherService {
     R save(@RequestBody Tb_Findothers findothers);
 
     @GetMapping("find/other/finddetil.do")
-    R selectDetailByJid(@RequestParam("jid") Long jid);
+    R selectDetailByJid(Long jid);
 }

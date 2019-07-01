@@ -21,5 +21,5 @@ public interface Tb_FindothersMapper {
 
     int updateByPrimaryKey(Tb_Findothers record);
     // 跟新检人信息的浏览量
-    int updatePageView(long jid, long pageview);
+    int updatePageView(long jid, int pageview);
 }

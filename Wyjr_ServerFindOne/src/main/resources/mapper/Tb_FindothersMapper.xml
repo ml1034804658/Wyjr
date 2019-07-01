@@ -124,7 +124,7 @@
     where jid = #{jid,jdbcType=BIGINT}
   </update>
 
-  <update id="updatePageView" parameterType="map">
+  <update id="updatePageView" parameterType="com.jr.entity.Tb_Findothers">
     update tb_findothers
     set pageview = #{pageview}
     where jid = #{jid}

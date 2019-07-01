@@ -103,5 +103,11 @@ public class FindOtherServiceImpl implements FindOtherService {
         }
     }
 
+    @Override
+    public void updatePageView(long jid, int pageview) {
+        //System.out.println("service中的jid:" + jid);
+        tb_findothersMapper.updatePageView(jid,pageview);
+    }
+
 
 }

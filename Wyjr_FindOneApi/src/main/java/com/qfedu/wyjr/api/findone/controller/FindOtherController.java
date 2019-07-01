@@ -36,7 +36,7 @@ public class FindOtherController {
     };
 
     @GetMapping("/api/find/other/finddetil.do")
-    private  R selectDetailByJid(@RequestParam("jid") Long jid) throws FindOneException {
+    private  R selectDetailByJid(Long jid) throws FindOneException {
         return findOtherService.selectDetailByJid(jid);
     }
 }
