@@ -21,4 +21,7 @@ public interface Tb_UserService {
     @GetMapping("user/checkphone.do")
     R check(@RequestParam("phone") String phone);
 
+    // 查询我的捡人信息
+    @GetMapping("api/tbfindothers/findByUid.do")
+    R findByTbFindothers();
 }
