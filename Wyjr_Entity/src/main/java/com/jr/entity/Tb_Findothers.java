@@ -7,7 +7,7 @@ import java.util.Date;
 public class Tb_Findothers {
     private Long jid;
 
-    private Long uid;
+    private int uid;
 
     private String route;
 
