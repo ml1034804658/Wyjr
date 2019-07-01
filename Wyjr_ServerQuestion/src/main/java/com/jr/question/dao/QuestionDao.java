@@ -1,6 +1,7 @@
 package com.jr.question.dao;
 
 import com.jr.entity.Tb_Question;
+import com.jr.question.entity.QuestionVo;
 
 import java.util.List;
 
@@ -13,5 +14,12 @@ public interface QuestionDao {
     * @return
     */
    public Integer add(Tb_Question question);
+
+   /**
+    * 通过问题id查询到问题详情
+    * @param qid
+    * @return
+    */
+   public QuestionVo findByQid(Long qid);
 
 }
