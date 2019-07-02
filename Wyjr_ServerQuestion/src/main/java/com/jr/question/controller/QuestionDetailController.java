@@ -3,10 +3,12 @@ package com.jr.question.controller;
 import com.jr.common.exception.QuestionException;
 import com.jr.common.vo.R;
 import com.jr.question.service.QuestionAnswerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class QuestionDetailController  {
+    @Autowired
     private QuestionAnswerService qas;
 
     @GetMapping("/question/selectQDetail.do")

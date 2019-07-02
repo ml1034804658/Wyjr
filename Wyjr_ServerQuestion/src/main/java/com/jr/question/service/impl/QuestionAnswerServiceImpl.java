@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -40,6 +41,7 @@ public class QuestionAnswerServiceImpl implements QuestionAnswerService {
             JedisUtil jedisUtil = JedisUtil.getInstance();
             hgetall = jedisUtil.hgetall("Qvo");
             String qvos = hgetall.get(qid.toString());
+            Object qvoss = JSON.parse(qvos);
             //到redis中查询相关问题详情
             if(qvos != null && qvos.length() > 0){
 
@@ -55,14 +57,14 @@ public class QuestionAnswerServiceImpl implements QuestionAnswerService {
                 }
                 //把新的浏览值存到redis中
                 jedisUtil.hset("Qbrowse",qid.toString(),number.toString());
-                return R.setOK("Ok",qvos);
+                return R.setOK("Ok",qvoss);
 
             }else{
                 //从数据库把数据查出，然后存到redis中
                 QuestionVo qvo = qDao.findByQid(qid);
                 Object jqvo = JSON.toJSON(qvo);
-                jedisUtil.hset("Qvo",""+qid,jqvo.toString());
-                return R.setOK("Ok",jqvo.toString());
+                jedisUtil.hset("Qvo",""+qid,jqvo+"");
+                return R.setOK("Ok",jqvo);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -81,7 +83,7 @@ public class QuestionAnswerServiceImpl implements QuestionAnswerService {
     public R selectQuestionAnswer(Long qid) throws QuestionException {
         try {
             Map<String, String> hgetall  = null;
-            hgetall = null;
+            Map<String,Object> outMap = new HashMap<>();
             JedisUtil jedisUtil = JedisUtil.getInstance();
             hgetall = jedisUtil.hgetall("QAnsw" + qid);
             //到redis中查询相关问题回复
@@ -95,7 +97,8 @@ public class QuestionAnswerServiceImpl implements QuestionAnswerService {
                 for (QuestionAnswerVo qavo:
                         answerByQid) {
                     Object jqavo = JSON.toJSON(qavo);
-                    hgetall.put(""+qavo.getId(),qavo.toString());
+                    hgetall.put(""+qavo.getId(),jqavo.toString());
+                    outMap.put(""+qavo.getId(),jqavo);
                 }
                 Long total = page.getTotal();
                 hgetall.put("Total",total.toString());
