@@ -21,5 +21,5 @@ public interface Tb_FindothersMapper {
 
     public List<Tb_Findothers> findByTb_Findothers(long uid);
 
-
+    public List<Tb_Findothers> findAll(long uid);
 }

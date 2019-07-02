@@ -118,4 +118,13 @@
       select * from tb_findothers where uid=#{uid}
   </select>
 
+  <select id="findAll" resultType="com.jr.entity.Tb_Findothers">
+    select tbf.* from tb_user tbu
+    left join tb_collection tbc
+    on tbc.uid = tbu.id
+    left join tb_findothers tbf
+    on tbf.jid = tbc.rid
+    where tbu.id=#{uid}
+  </select>
+
 </mapper>

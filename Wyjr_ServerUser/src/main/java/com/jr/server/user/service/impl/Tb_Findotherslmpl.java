@@ -1,6 +1,7 @@
 package com.jr.server.user.service.impl;
 
 import com.jr.common.config.ProjectConfig;
+import com.jr.common.exception.FindothersException;
 import com.jr.common.vo.R;
 import com.jr.entity.Tb_Findothers;
 import com.jr.entity.Tb_User;
@@ -24,7 +25,7 @@ public class Tb_Findotherslmpl implements Tb_FindothersService {
     private Tb_UserMapper tb_userMapper;
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = {FindothersException.class})
     public R findByUid() {
         Jedis jedis = new Jedis(ProjectConfig.REDISHOST, ProjectConfig.REDISPORT);
         jedis.auth(ProjectConfig.REDISPASS);
