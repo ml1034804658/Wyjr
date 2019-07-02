@@ -78,9 +78,9 @@
         <result column="imageurl" jdbcType="VARCHAR" property="imageurl" />
         <result column="state" jdbcType="INTEGER" property="state" />
         <result column="reward" jdbcType="INTEGER" property="reward" />
-        <result column="nickname" javaType="VARCHAR" property="nickname"/>
-        <result column="headurl" javaType="VARCHAR" property="headurl"/>
-        <result column="qq" javaType="VARCHAR" property="qq"/>
+        <result column="nickname" jdbcType="VARCHAR" property="nickname"/>
+        <result column="headurl" jdbcType="VARCHAR" property="headurl"/>
+        <result column="qq" jdbcType="VARCHAR" property="qq"/>
     </resultMap>
 
     <select id="findByQid" parameterType="map" resultMap="QustionVoMap">

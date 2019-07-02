@@ -10,10 +10,10 @@
         <result column="r_content" jdbcType="VARCHAR" property="rContent" />
         <result column="r_time" jdbcType="TIMESTAMP" property="rTime" />
         <result column="runame" jdbcType="VARCHAR" property="runame"/>
-        <result column="nickname" javaType="VARCHAR" property="nickname"/>
-        <result column="headurl" javaType="VARCHAR" property="headurl"/>
-        <result column="age" javaType="INTEGER" property="age"/>
-        <result column="qq" javaType="VARCHAR" property="qq"/>
+        <result column="nickname" jdbcType="VARCHAR" property="nickname"/>
+        <result column="headurl" jdbcType="VARCHAR" property="headurl"/>
+        <result column="age" jdbcType="INTEGER" property="age"/>
+        <result column="qq" jdbcType="VARCHAR" property="qq"/>
     </resultMap>
 
     <select id="findAnswerByQid" parameterType="map" resultMap="QustionAnswerVoMap">
