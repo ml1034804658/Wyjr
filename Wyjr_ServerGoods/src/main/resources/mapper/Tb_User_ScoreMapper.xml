@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jr.server.goods.dao.Tb_User_ScoreMapper">
+  <resultMap id="BaseResultMap" type="com.jr.entity.Tb_User_Score">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="totalscore" jdbcType="INTEGER" property="totalscore" />
+    <result column="currscore" jdbcType="INTEGER" property="currscore" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, uid, totalscore, currscore
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_user_score
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insert" parameterType="com.jr.entity.Tb_User_Score">
+    insert into tb_user_score (id, uid, totalscore, 
+      currscore)
+    values (#{id,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{totalscore,jdbcType=INTEGER}, 
+      #{currscore,jdbcType=INTEGER})
+  </insert>
+
+  <select id="selectByUid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tb_user_score
+    where uid = #{uid,jdbcType=INTEGER}
+  </select>
+
+</mapper>

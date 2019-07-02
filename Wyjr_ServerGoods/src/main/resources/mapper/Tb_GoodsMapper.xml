@@ -4,4 +4,10 @@
     <select id="selectAll" resultType="com.jr.server.goods.vo.VGoods">
         select * from tb_goods;
     </select>
+    <select id="selectByGid" parameterType="int" resultType="com.jr.server.goods.vo.VGoods">
+        select * from tb_goods where id=#{gid};
+    </select>
+    <insert id="addLog" parameterType="com.jr.server.goods.vo.GoodsBuyLog">
+        insert into tb_goodsbuy_log (goodsid, status, ctime) values (#{goodsId}, #{status}, #{ctime});
+    </insert>
 </mapper>
