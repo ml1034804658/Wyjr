@@ -15,9 +15,9 @@ public class Tb_Findothers_Comment {
 
     private Long rid;         //回复的id
 
-    private String rContent;   //回复内容
+    private String rcontent;   //回复内容
 
-    private Date rTime;       //回复时间
+    private Date rtime;       //回复时间
 
 
 }
