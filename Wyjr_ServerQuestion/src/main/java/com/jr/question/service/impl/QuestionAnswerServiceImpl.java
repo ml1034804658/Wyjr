@@ -1,6 +1,9 @@
 package com.jr.question.service.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.jr.common.config.ProjectConfig;
 import com.jr.common.exception.QuestionException;
 import com.jr.common.util.JedisUtil;
 import com.jr.common.vo.R;
@@ -87,13 +90,15 @@ public class QuestionAnswerServiceImpl implements QuestionAnswerService {
 
             }else{
                 //从数据库把数据查出，然后存到redis中
-
+                Page<Object> page = PageHelper.startPage(ProjectConfig.PAGENUM, ProjectConfig.PAGESIZE);
                 List<QuestionAnswerVo> answerByQid = qaDao.findAnswerByQid(qid);
                 for (QuestionAnswerVo qavo:
                         answerByQid) {
                     Object jqavo = JSON.toJSON(qavo);
                     hgetall.put(""+qavo.getId(),qavo.toString());
                 }
+                Long total = page.getTotal();
+                hgetall.put("Total",total.toString());
                 jedisUtil.hmset("QAmsw" + qid,hgetall);
             }
             return R.setOK("Ok",hgetall);

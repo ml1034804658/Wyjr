@@ -69,4 +69,24 @@
             </if>
         </trim>
     </insert>
+
+    <resultMap id="QustionVoMap" type="com.jr.question.entity.QuestionVo">
+        <id column="qid" jdbcType="BIGINT" property="qid" />
+        <result column="uid" jdbcType="BIGINT" property="uid" />
+        <result column="content" jdbcType="VARCHAR" property="content" />
+        <result column="cretetime" jdbcType="TIMESTAMP" property="cretetime" />
+        <result column="imageurl" jdbcType="VARCHAR" property="imageurl" />
+        <result column="state" jdbcType="INTEGER" property="state" />
+        <result column="reward" jdbcType="INTEGER" property="reward" />
+        <result column="nickname" javaType="VARCHAR" property="nickname"/>
+        <result column="headurl" javaType="VARCHAR" property="headurl"/>
+        <result column="qq" javaType="VARCHAR" property="qq"/>
+    </resultMap>
+
+    <select id="findByQid" parameterType="map" resultMap="QustionVoMap">
+        select q.*,nickname,headurl,qq
+        from tb_question q inner join  tb_user_info uif
+        on q.uid = uif.uid
+        where qid = #{qid}
+    </select>
 </mapper>

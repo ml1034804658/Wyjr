@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jr.question.dao.QuestionAnswerDao">
+    <resultMap id="QustionAnswerVoMap" type="com.jr.question.entity.QuestionAnswerVo">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="qid" jdbcType="BIGINT" property="qid" />
+        <result column="uid" jdbcType="BIGINT" property="uid" />
+        <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+        <result column="rid" jdbcType="BIGINT" property="rid" />
+        <result column="r_content" jdbcType="VARCHAR" property="rContent" />
+        <result column="r_time" jdbcType="TIMESTAMP" property="rTime" />
+        <result column="runame" jdbcType="VARCHAR" property="runame"/>
+        <result column="nickname" javaType="VARCHAR" property="nickname"/>
+        <result column="headurl" javaType="VARCHAR" property="headurl"/>
+        <result column="age" javaType="INTEGER" property="age"/>
+        <result column="qq" javaType="VARCHAR" property="qq"/>
+    </resultMap>
+
+    <select id="findAnswerByQid" parameterType="map" resultMap="QustionAnswerVoMap">
+        select qa.*,uif.nickname,getAge(birthday) as age,headurl,qq
+        from tb_question_answer qa inner join  tb_user_info uif
+        on qa.uid = uif.uid
+        where qid = #{qid}
+    </select>
+</mapper>

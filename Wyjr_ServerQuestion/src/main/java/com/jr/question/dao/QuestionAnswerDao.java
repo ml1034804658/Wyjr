@@ -1,6 +1,7 @@
 package com.jr.question.dao;
 
 import com.jr.question.entity.QuestionAnswerVo;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -11,7 +12,7 @@ public interface QuestionAnswerDao {
      * @param qid
      * @return
      */
-    public List<QuestionAnswerVo> findAnswerByQid(Long qid);
+    public List<QuestionAnswerVo> findAnswerByQid(@Param("qid") Long qid);
 
 
 }
