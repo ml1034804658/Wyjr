@@ -2,6 +2,7 @@ package com.jr.question.service.impl;
 
 import com.jr.entity.Tb_Question;
 import com.jr.question.dao.QuestionWithNewDao;
+import com.jr.question.entity.QuestionAnswerVo;
 import com.jr.question.service.QuestionWithNewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,7 @@ public class QuestionWithNewServiceImpl implements QuestionWithNewService{
 
 
     @Override
-    public List<Tb_Question> findAllNewest() {
+    public List<QuestionAnswerVo> findAllNewest() {
 
         return questionWithNewDao.findAllWithNew();
     }

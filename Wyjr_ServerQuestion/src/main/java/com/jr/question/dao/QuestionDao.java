@@ -1,6 +1,7 @@
 package com.jr.question.dao;
 
 import com.jr.entity.Tb_Question;
+import com.jr.question.entity.QuestionAnswerVo;
 import com.jr.question.entity.QuestionVo;
 import org.apache.ibatis.annotations.Param;
 
@@ -8,7 +9,10 @@ import java.util.List;
 
 public interface QuestionDao {
 
-   public List<Tb_Question> findAll();
+   /*
+   * 展示最新
+   * */
+   public List<QuestionAnswerVo> findAll();
 
    /**
     * 添加操作
