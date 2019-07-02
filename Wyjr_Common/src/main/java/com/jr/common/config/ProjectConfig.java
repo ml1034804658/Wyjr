@@ -80,5 +80,8 @@ public class ProjectConfig {
     public static final Integer Expire = 0;
     //未过期
     public static final Integer NoExpire = 1;
-
+    //分页查询页码
+    public static final Integer PAGENUM = 1;
+    //分页查询大小
+    public static final Integer PAGESIZE = 500;
 }

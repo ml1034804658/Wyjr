@@ -19,5 +19,5 @@ public class Tb_Question_Answer {
 
     private Date rTime;          //回复时间
 
-
+    private String runame;      //回复的对象名称
 }

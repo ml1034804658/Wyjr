@@ -1,10 +1,11 @@
 package com.jr.question.service;
 
+import com.jr.common.exception.QuestionException;
 import com.jr.common.vo.R;
 
 public interface QuestionAnswerService {
 
-    public R selectQuestion(Long qid);
+    public R selectQuestion(Long qid) throws QuestionException;
 
-    public R sellectQuestionAnswer(Long qid);
+    public R selectQuestionAnswer(Long qid) throws QuestionException;
 }
