@@ -7,11 +7,11 @@
     <result column="uid" jdbcType="BIGINT" property="uid" />
     <result column="parentid" jdbcType="BIGINT" property="parentid" />
     <result column="rid" jdbcType="BIGINT" property="rid" />
-    <result column="r_content" jdbcType="VARCHAR" property="rContent" />
-    <result column="r_time" jdbcType="TIMESTAMP" property="rTime" />
+    <result column="rcontent" jdbcType="VARCHAR" property="rcontent" />
+    <result column="rtime" jdbcType="TIMESTAMP" property="rtime" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, jid, uid, parentid, rid, r_content, r_time
+    id, jid, uid, parentid, rid, rcontent, rtime
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
@@ -25,10 +25,10 @@
   </delete>
   <insert id="insert" parameterType="com.jr.entity.Tb_Findothers_Comment">
     insert into tb_findothers_comment (id, jid, uid, parentid, 
-      rid, r_content, r_time
+      rid, rcontent, rtime
       )
     values (#{id,jdbcType=BIGINT}, #{jid,jdbcType=BIGINT}, #{uid,jdbcType=BIGINT}, #{parentid,jdbcType=BIGINT}, 
-      #{rid,jdbcType=BIGINT}, #{rContent,jdbcType=VARCHAR}, #{rTime,jdbcType=TIMESTAMP}
+      #{rid,jdbcType=BIGINT}, #{rcontent,jdbcType=VARCHAR}, #{rtime,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.jr.entity.Tb_Findothers_Comment">
@@ -49,10 +49,10 @@
       <if test="rid != null">
         rid,
       </if>
-      <if test="rContent != null">
+      <if test="rcontent != null">
         r_content,
       </if>
-      <if test="rTime != null">
+      <if test="rtime != null">
         r_time,
       </if>
     </trim>
@@ -72,10 +72,10 @@
       <if test="rid != null">
         #{rid,jdbcType=BIGINT},
       </if>
-      <if test="rContent != null">
+      <if test="rcontent != null">
         #{rContent,jdbcType=VARCHAR},
       </if>
-      <if test="rTime != null">
+      <if test="rtime != null">
         #{rTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
@@ -96,10 +96,10 @@
         rid = #{rid,jdbcType=BIGINT},
       </if>
       <if test="rContent != null">
-        r_content = #{rContent,jdbcType=VARCHAR},
+        r_content = #{rcontent,jdbcType=VARCHAR},
       </if>
       <if test="rTime != null">
-        r_time = #{rTime,jdbcType=TIMESTAMP},
+        r_time = #{rtime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -110,12 +110,16 @@
       uid = #{uid,jdbcType=BIGINT},
       parentid = #{parentid,jdbcType=BIGINT},
       rid = #{rid,jdbcType=BIGINT},
-      r_content = #{rContent,jdbcType=VARCHAR},
-      r_time = #{rTime,jdbcType=TIMESTAMP}
+      r_content = #{rcontent,jdbcType=VARCHAR},
+      r_time = #{rtime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
 
   <select id="selectByJid" parameterType="long" resultType="com.jr.entity.Tb_Findothers_Comment">
      select * from tb_findothers_comment where jid = #{jid};
+  </select>
+
+  <select id="countCommentByJid" parameterType="long" resultType="int">
+    select count(*) from tb_findothers_comment where jid = #{jid}
   </select>
 </mapper>

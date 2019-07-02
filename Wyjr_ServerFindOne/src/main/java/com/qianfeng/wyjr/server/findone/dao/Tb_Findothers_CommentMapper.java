@@ -20,4 +20,6 @@ public interface Tb_Findothers_CommentMapper {
 
     // 通过检人信息的id获取对于检人信息的评论
     List<Tb_Findothers_Comment> selectByJid(Long jid);
+    // 查看当前检人信息的评论
+    int countCommentByJid(Long jid);
 }
