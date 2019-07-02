@@ -21,7 +21,7 @@ public class QuestionWithEssenceServiceImpl implements QuestionWithEssenceServic
     @Override
     public List<QuestionAnswerVo> findAllEssence() {
 
-        //连接Redis服务
+       /* //连接Redis服务
         Jedis jedis = new Jedis("39.105.189.141");
         System.out.println("连接成功");
         //获取数据并输出
@@ -30,7 +30,7 @@ public class QuestionWithEssenceServiceImpl implements QuestionWithEssenceServic
         while (it.hasNext()){
             String key=it.next();
             System.out.println(key);
-        }
+        }*/
 
         return questionWithEssenceDao.findAllWithEssence();
     }

@@ -13,7 +13,7 @@ public class QuestionWithNewController {
     @Autowired
     private QuestionWithNewService questionWithNewService;
 
-    @GetMapping("question/new.do")
+    @GetMapping("/question/new.do")
     public List<QuestionAnswerVo> findAllNewest(){
 
         return questionWithNewService.findAllNewest();

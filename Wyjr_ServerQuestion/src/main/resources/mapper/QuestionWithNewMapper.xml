@@ -5,19 +5,15 @@
     <select id="findAllWithNew" resultType="com.jr.entity.Tb_Question">
 
         <if test="reward !=0">
-            select q.*, u.nickname,qa.parent_id from tb_question q
+            select q.*, u.nickname,u.headurl from tb_question q
             inner JOIN tb_user_info u
             on q.uid=u.uid
-            INNER JOIN tb_question_answer qa
-            on u.uid=qa.uid
             order by cretetime desc;
         </if>
         <if test="reward=0">
-            select q.*, u.nickname,qa.parent_id from tb_question q
+            select q.*, u.nickname,u.headurl from tb_question q
             inner JOIN tb_user_info u
             on q.uid=u.uid
-            INNER JOIN tb_question_answer qa
-            on u.uid=qa.uid
             order by cretetime desc;
         </if>
 

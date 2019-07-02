@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jr.question.dao.QuestionWithEssenceDao">
+
+    <select id="findAllWithEssence" resultType="com.jr.entity.Tb_Question">
+
+            select q.*, u.nickname,u.headurl from tb_question q
+            inner JOIN tb_user_info u
+            on q.uid=u.uid
+            order by browseNum desc;
+
+    </select>
+
+
+</mapper>

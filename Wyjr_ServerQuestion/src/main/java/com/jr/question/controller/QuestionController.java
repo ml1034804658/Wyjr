@@ -15,7 +15,7 @@ public class QuestionController {
     @Autowired
     private QuestionService questionService;
 
-    @GetMapping("question.do")
+    @GetMapping("/question.do")
     public List<QuestionAnswerVo> findAllQuestion(){
 
         return questionService.findAllquestion();

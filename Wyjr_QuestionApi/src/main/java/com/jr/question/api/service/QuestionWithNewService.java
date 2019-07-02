@@ -9,7 +9,7 @@ import java.util.List;
 @FeignClient(name="QuestionProvider")
 public interface QuestionWithNewService {
 
-    @GetMapping("/api/question/new.do")
+    @GetMapping("/question/new.do")
     List<Tb_Question> findAllNewest();
 
 }

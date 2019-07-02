@@ -15,7 +15,7 @@ public class QuestionWithEssenceController {
     @Autowired
     private QuestionWithEssenceService questionWithEssenceService;
 
-    @GetMapping("question/essence.do")
+    @GetMapping("/question/essence.do")
     public List<QuestionAnswerVo> findAllWithEssence(){
 
         return questionWithEssenceService.findAllEssence();

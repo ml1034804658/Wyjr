@@ -9,7 +9,7 @@ import java.util.List;
 @FeignClient(name="QuestionProvider")
 public interface QuestionWithEssenceService {
 
-    @GetMapping("/api/question/essence.do")
+    @GetMapping("/question/essence.do")
     List<Tb_Question> findAllWithEssence();
 
 }
