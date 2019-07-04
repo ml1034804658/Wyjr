@@ -1,5 +1,6 @@
 package com.jr.question.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.jr.common.util.JedisUtil;
 import com.jr.question.dao.QuestionWithEssenceDao;
 import com.jr.question.entity.QuestionAnswerVo;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 @Service
@@ -21,16 +23,21 @@ public class QuestionWithEssenceServiceImpl implements QuestionWithEssenceServic
     @Override
     public List<QuestionAnswerVo> findAllEssence() {
 
-       /* //连接Redis服务
-        Jedis jedis = new Jedis("39.105.189.141");
-        System.out.println("连接成功");
-        //获取数据并输出
-        Set<String> keys=jedis.keys("*");
-        Iterator<String> it = keys.iterator();
-        while (it.hasNext()){
-            String key=it.next();
-            System.out.println(key);
+       /* Map<String,String> map = null;
+        JedisUtil jedisUtil = JedisUtil.getInstance();
+        map = jedisUtil.hgetall("Qwe");
+        String qwes = map.get(toString());
+        Object qwess = JSON.parse(qwes);
+
+        //到Redis中查询展示详情
+        if (qwes != null && qwes.length() > 0){
+            //获取Redis中精华
+            String browseNum = jedisUtil.hget("browseNum",toString());
+
         }*/
+
+
+
 
         return questionWithEssenceDao.findAllWithEssence();
     }

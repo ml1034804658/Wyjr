@@ -20,6 +20,7 @@ public class FindOtherCommentServiceImpl implements FindOtherCommentService {
 
     @Override
     public R countCommentByJid(Long jid) {
+
         return R.setOK("成功查找到评论数",findothersComment.countCommentByJid(jid));
     }
 }
