@@ -55,7 +55,7 @@
         <fileupload.version>1.4</fileupload.version>
         <io.version>2.6</io.version>
         <oss.version>2.8.3</oss.version>
-        <httpclient.version>4.5.9</httpclient.version>
+        <httpclient.version>4.5.13</httpclient.version>
         <esclient.version>7.1.1</esclient.version>
         <dataes.version>2.1.6.RELEASE</dataes.version>
     </properties>
